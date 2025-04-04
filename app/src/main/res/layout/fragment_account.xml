@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.AccountFragment">
+
+    <TextView
+        android:id="@+id/header_title"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:paddingHorizontal="16dp"
+        android:background="#DE7474"
+        android:text="Account"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:gravity="center_vertical|start"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_baseline_account_circle_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_title"/>
+
+    <Button
+        android:id="@+id/btn_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="From camera"
+        android:backgroundTint="#DE7474"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_gallery"
+        app:layout_constraintTop_toBottomOf="@id/image_view"/>
+
+    <Button
+        android:id="@+id/btn_gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="From gallery"
+        android:backgroundTint="#DE7474"
+        app:layout_constraintStart_toEndOf="@id/btn_camera"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_view"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
