@@ -68,6 +68,13 @@ dependencies {
     // Navigtion
     implementation ("androidx.navigation:navigation-fragment-ktx:2.8.9")
     implementation ("androidx.navigation:navigation-ui-ktx:2.8.9")
+
+    // Material
+    implementation ("com.google.android.material:material:1.11.0")
+
+    // Glide
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+
 }
 
 // Allow references to generated code

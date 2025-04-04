@@ -14,10 +14,12 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.vigelos.piontest.databinding.ActivityMainBinding
 import com.vigelos.piontest.viewmodel.NewFeedViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -34,12 +36,12 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         setUpBottomNavigtion()
-//        viewModel.newFeedJson.observe(this) {
-//            Log.e("MainActivity", it.toString())
-//        }
-//        CoroutineScope(Dispatchers.IO).launch {
-//            viewModel.fetchNewFeedJson()
-//        }
+        viewModel.newFeedJson.observe(this) {
+            Log.e("MainActivity", it.toString())
+        }
+        CoroutineScope(Dispatchers.IO).launch {
+            viewModel.fetchNewFeedJson()
+        }
 
 
     }

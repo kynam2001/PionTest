@@ -1,10 +1,11 @@
 package com.vigelos.piontest.data.repository
 
-import com.vigelos.piontest.data.api.RetrofitInstance
+import com.vigelos.piontest.data.api.ApiService
 import com.vigelos.piontest.data.model.NewFeedJson
+import javax.inject.Inject
 
-class NewFeedJsonRepo {
+class NewFeedJsonRepo @Inject constructor(private val apiService: ApiService) {
     suspend fun getNewFeedJson(): NewFeedJson{
-        return RetrofitInstance.api.getNewFeedJson()
+        return apiService.getNewFeedJson()
     }
 }
