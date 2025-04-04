@@ -1,7 +1,10 @@
 package com.vigelos.piontest.di
 
+import com.google.gson.GsonBuilder
 import com.vigelos.piontest.data.api.ApiService
+import com.vigelos.piontest.data.model.Section
 import com.vigelos.piontest.data.repository.NewFeedJsonRepo
+import com.vigelos.piontest.utils.SectionDeserializer
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,9 +18,14 @@ object AppModule {
 
     @Provides
     fun provideRetrofit(): Retrofit{
+
+        val gson = GsonBuilder()
+            .registerTypeAdapter(Section::class.java, SectionDeserializer())
+            .create()
+
         return Retrofit.Builder()
             .baseUrl("https://raw.githubusercontent.com/Akaizz/static/master/")
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
 

@@ -5,20 +5,20 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.vigelos.piontest.data.model.DetailJson
-import com.vigelos.piontest.data.model.NewFeedJson
+import com.vigelos.piontest.data.repository.DetailJsonRepo
 import com.vigelos.piontest.data.repository.NewFeedJsonRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class NewFeedViewModel @Inject constructor(private val repository: NewFeedJsonRepo) : ViewModel() {
-    private val _newFeedJson = MutableLiveData<NewFeedJson>()
-    val newFeedJson: LiveData<NewFeedJson> = _newFeedJson
+class DetailViewModel @Inject constructor(private val repository: DetailJsonRepo): ViewModel() {
+    private val _detailJson = MutableLiveData<DetailJson>()
+    val detailJson: LiveData<DetailJson> = _detailJson
 
-    fun fetchNewFeedJson() {
+    fun fetchDetailJson() {
         viewModelScope.launch {
-            _newFeedJson.value = repository.getNewFeedJson()
+            _detailJson.value = repository.getDetailJson()
         }
     }
 }

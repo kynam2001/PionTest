@@ -1,5 +1,6 @@
 package com.vigelos.piontest.viewmodel.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.vigelos.piontest.data.model.Item
 import com.vigelos.piontest.databinding.ItemNewFeedBinding
+import com.vigelos.piontest.ui.DetailActivity
 
 class NewFeedAdapter(
     private val items: List<Item>
@@ -53,6 +55,11 @@ class NewFeedAdapter(
                 } else {
                     imageView.visibility = View.GONE
                 }
+            }
+
+            holder.itemView.setOnClickListener{
+                val intent = Intent(context, DetailActivity::class.java)
+                context.startActivity(intent)
             }
         }
     }

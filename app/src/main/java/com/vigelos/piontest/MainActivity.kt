@@ -13,6 +13,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.vigelos.piontest.databinding.ActivityMainBinding
+import com.vigelos.piontest.viewmodel.DetailViewModel
 import com.vigelos.piontest.viewmodel.NewFeedViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
@@ -23,7 +24,7 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val viewModel: NewFeedViewModel by viewModels()
+    private val viewModel: DetailViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,11 +37,11 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         setUpBottomNavigtion()
-        viewModel.newFeedJson.observe(this) {
+        viewModel.detailJson.observe(this) {
             Log.e("MainActivity", it.toString())
         }
         CoroutineScope(Dispatchers.IO).launch {
-            viewModel.fetchNewFeedJson()
+            viewModel.fetchDetailJson()
         }
 
 
